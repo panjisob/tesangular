@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card" style="margin-top: 20px">
+            <div class="card-body">
+
+            <form class="emp-form" #book="ngForm" (ngSubmit)="onSubmit(book)">
+            <!-- <input type="hidden" name="id" #id="ngModel" [(ngModel)]="bookService.selectedBook.id"> -->
+            <div class="form-group">
+              <!-- <label for="exampleInputEmail1">{{isi.name}}</label> -->
+              <input class="form-control" type="text" [(ngModel)]="book.name" name="name" placeholder="Nama Buku" required>
+              <!-- <div class="validation-error" *ngIf="name.invalid && name.touched">This Field is Required.</div> -->
+            </div>
+              
+            
+            <div class="form-group">
+              <input class="form-control" type="text" [(ngModel)]="book.description" name="description" placeholder="deskripsi" required>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <button [disabled]="!book.form.valid" type="submit" class="btn btn-lg btn-block btn-info">
+                  <i class="fa fa-floppy-o"></i> Submit</button>
+              </div>
+              <div class="form-group col-md-4">
+                <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(book)">
+                  <i class="fa fa-repeat"></i> Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

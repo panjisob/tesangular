@@ -1,0 +1,77 @@
+<div class="page-breadcrumb">
+    <div class="row align-items-center">
+        <div class="col-5">
+            <h4 class="page-title">Tabel buku</h4>
+            
+        </div>
+        <div class="col-7">
+            <div class="text-right upgrade-btn">
+                <a routerLink="/insert" class="btn btn-primary text-white" >Tambah Buku</a>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Keterangan</th>
+                                <th scope="col">Aksi</th>
+                  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let book of books">
+                                <td>{{book.name}}</td>
+                                <td>{{book.description}}</td>
+                                <td>{{book.deletedAt}}</td>
+                                <td>
+                                <a class="btn btn-success" (click)="showForEdit(book)">
+                                    <i class="fa fa-pencil-square-o" style="color:aliceblue"></i>
+                                </a>
+                                <!-- The Modal -->
+                                <div class="modal fade" id="myModal">
+                                    <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                    
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                        <h4 class="modal-title">Hapis</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            apakah anda yakin akan menghapus data ini ?
+                                        </div>
+                                        
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Ya</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+    
+
+                                <a class="btn btn-danger" (click)="onDelete(book.id)" type="button" data-toggle="modal" data-target="#myModal">
+                                    <i class="fas fa-trash" style="color:aliceblue"></i>
+                                </a>
+                                </td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+      
